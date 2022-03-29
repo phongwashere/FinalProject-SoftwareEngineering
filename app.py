@@ -19,7 +19,7 @@ login_manager.init_app(app)
 login_manager.login_view = "login"
 
 class users(db.Model, UserMixin):
-    """ creating database """
+    """ creating user database """
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(50), nullable=False, unique=True)
 
@@ -93,6 +93,41 @@ def main():
 def landing():
     """ landing page after using logs in """
     return flask.render_template("landing.html")
+
+@app.route("/recommendations", methods=['GET','POST'])
+def recommendations():
+    """ recommendations page """
+    return
+
+@app.route("/random", methods=['GET','POST'])
+def random():
+    """ random page """
+    return
+
+@app.route("/favorites", methods=['GET','POST'])
+def favorites():
+    """ favorites page """
+    return
+
+@app.route("/1", methods=['GET','POST'])
+def extra1():
+    """ extra route to work with """
+    return
+
+@app.route("/2", methods=['GET','POST'])
+def extra2():
+    """ extra route to work with """
+    return
+
+@app.route("/3", methods=['GET','POST'])
+def extra3():
+    """ extra route to work with """
+    return
+
+@app.route("/4", methods=['GET','POST'])
+def extra4():
+    """ extra route to work with """
+    return
 
 app.run(
     debug=True
