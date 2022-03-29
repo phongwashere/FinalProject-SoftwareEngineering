@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/formstyle.css">
+    </head>
+    <p>
+        {% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul id="flashes" class=flashes>
+					{% for message in messages %}
+						<li><b>{{ message }}</b></li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+    </p>
+    <body>
+        <a href="{{ url_for('register') }}"><b>Don't have an account? Signup!</b></a>
+        <h1>Login Page</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.username }}
+            {{ form.submit }}
+        </form>
+    </body>
+</html>
