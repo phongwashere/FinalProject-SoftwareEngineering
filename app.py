@@ -122,7 +122,8 @@ def main():
 @login_required
 def landing():
     """landing page after using logs in"""
-    return flask.render_template("landing.html")
+    user = current_user.username
+    return flask.render_template("landing.html", user=user)
 
 
 @app.route("/recommendations", methods=["GET", "POST"])
