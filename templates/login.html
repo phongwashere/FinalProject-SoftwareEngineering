@@ -7,14 +7,15 @@
 			{% if messages %}
 				<ul id="flashes" class=flashes>
 					{% for message in messages %}
-						<li><b>{{ message }}</b></li>
+						<li>{{ message }}</li>
 					{% endfor %}
 				</ul>
 			{% endif %}
 		{% endwith %}
     </p>
     <body>
-        <a href="{{ url_for('register') }}"><b>Don't have an account? Signup!</b></a>
+        <a href="{{ url_for('main') }}">main page</a>
+        <a href="{{ url_for('register') }}">Don't have an account? Signup!</a>
         <h1>Login Page</h1>
         <form method="POST" action="">
             {{ form.hidden_tag() }}

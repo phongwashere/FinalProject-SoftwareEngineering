@@ -50,7 +50,7 @@ def firstpage():
     """ sends to main """
     return flask.redirect(flask.url_for('main'))
 
-@app.route("/login")
+@app.route("/login", methods=['GET','POST'])
 def login():
     """ login application """
     form = LoginForm()
@@ -74,7 +74,7 @@ def register():
         return flask.redirect(flask.url_for('login'))
     if users.query.filter_by(username=form.username.data).first():
         flask.flash("User already exists. Please choose a different username.")
-    return flask.render_template("signup.html", form=form)
+    return flask.render_template("register.html", form=form)
 
 @app.route("/logout", methods=['GET','POST'])
 @login_required
@@ -93,3 +93,7 @@ def main():
 def landing():
     """ landing page after using logs in """
     return flask.render_template("landing.html")
+
+app.run(
+    debug=True
+)
