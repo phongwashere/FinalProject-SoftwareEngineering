@@ -1,3 +1,4 @@
+from locale import locale_encoding_alias
 import os
 import flask
 from flask_login import (
@@ -147,7 +148,14 @@ def favorites():
 @app.route("/1", methods=["GET", "POST"])
 def extra1():
     """extra route to work with"""
-    return
+    user = current_user.username
+    data = flask.request.form
+    query = data["search"]
+    "".join(query)
+    split = query.split()
+    s = "+"
+    s = s.join(split)
+    return flask.render_template("landingAfterSearch.html", s=s, user=user)
 
 
 @app.route("/2", methods=["GET", "POST"])
