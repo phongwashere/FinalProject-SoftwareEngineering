@@ -33,6 +33,15 @@ class users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
 
+class favSongs(db.Model):
+    """creating favorite songs database"""
+    id = db.Column(db.Integer, primary_key=True)
+    song = db.Column(db.String(50))
+
+class favArtists(db.Model):
+    """creating favorite artists database"""
+    id = db.Column(db.Integer, primary_key=True)
+    artist = db.Column(db.String(50))
 
 db.create_all()
 
@@ -142,7 +151,15 @@ def random():
 @app.route("/favorites", methods=["GET", "POST"])
 def favorites():
     """favorites page"""
-    return
+    fav_songs = favSongs.query.all()
+    fav_artists = favArtists.query.all()
+    return flask.render_template(
+        "favorites.html",
+        num_songs=len(fav_songs),
+        fav_songs=[favSong.song for favSong in fav_songs],
+        num_artists=len(fav_artists),
+        fav_artists=[favArtist.artist for favArtist in fav_artists],
+        )
 
 
 @app.route("/1", methods=["GET", "POST"])
@@ -175,5 +192,42 @@ def extra4():
     """extra route to work with"""
     return
 
+@app.route("/save_fav_song", methods=["GET", "POST"])
+def save_fav_song():
+    """allows user to save a song on the favorites page"""
+    fav_song_name = flask.request.form.get("favSong")
+    fav_song = favSongs(song=fav_song_name)
+    db.session.add(fav_song)
+    db.session.commit()
+    return flask.redirect("/favorites")
+
+@app.route("/del_fav_song", methods=["GET", "POST"])
+def del_fav_song():
+    """extra route to work with"""
+    fav_song_name = flask.request.form.get("favSong")
+    fav_song = favSongs.query.filter_by(song=fav_song_name).first()
+    if fav_song is not None:
+        db.session.delete(fav_song)
+        db.session.commit()
+    return flask.redirect("/favorites")
+
+@app.route("/save_fav_artist", methods=["GET", "POST"])
+def save_fav_artist():
+    """allows user to save a artist on the favorites page"""
+    fav_artist_name = flask.request.form.get("favArtist")
+    fav_artist = favArtists(artist=fav_artist_name)
+    db.session.add(fav_artist)
+    db.session.commit()
+    return flask.redirect("/favorites")
+
+@app.route("/del_fav_artist", methods=["GET", "POST"])
+def del_fav_artist():
+    """extra route to work with"""
+    fav_artist_name = flask.request.form.get("favArtist")
+    fav_artist = favArtists.query.filter_by(artist=fav_artist_name).first()
+    if fav_artist is not None:
+        db.session.delete(fav_artist)
+        db.session.commit()
+    return flask.redirect("/favorites")
 
 app.run(debug=True)
