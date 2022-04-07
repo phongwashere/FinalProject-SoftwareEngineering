@@ -5,12 +5,8 @@
 
 <body>
     <a href="{{ url_for('logout') }}">Press here to logout!</a>
-    <a href="{{ url_for('extra2') }}">Press here to recommend!</a>
+    <a href="{{ url_for('recommendations') }}">Press here to get recommendations!</a>
     <p>Hi {{user}}!</p>
 </body>
-<form method="POST" action="/1">
-    <input type="text" placeholder="youtube search" name="search">
-    <input type="submit" value="Search!">
-</form>
 
 </html>
