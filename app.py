@@ -1,4 +1,3 @@
-from ast import Pass
 import os
 import flask
 from flask_login import (
@@ -50,7 +49,6 @@ class favArtists(db.Model):
     username = db.Column(db.String(50))
 
 db.create_all()
-#db.drop_all()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -226,7 +224,7 @@ def save_fav_song():
 def del_fav_song():
     """allows user to delete a song on the favorites page"""
     fav_song_name = flask.request.form.get("favSong")
-    fav_song = favSongs.query.filter_by(song=fav_song_name).first()
+    fav_song = favSongs.query.filter_by(song=fav_song_name, username=current_user.username).first()
     if fav_song is not None:
         db.session.delete(fav_song)
         db.session.commit()
@@ -245,7 +243,7 @@ def save_fav_artist():
 def del_fav_artist():
     """allows user to delete an artist on the favorites page"""
     fav_artist_name = flask.request.form.get("favArtist")
-    fav_artist = favArtists.query.filter_by(artist=fav_artist_name).first()
+    fav_artist = favArtists.query.filter_by(artist=fav_artist_name, username=current_user.username).first()
     if fav_artist is not None:
         db.session.delete(fav_artist)
         db.session.commit()
