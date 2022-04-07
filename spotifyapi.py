@@ -1,8 +1,7 @@
 import os
-import requests
 from dotenv import load_dotenv, find_dotenv
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials
 from itertools import islice
 
 load_dotenv(find_dotenv())

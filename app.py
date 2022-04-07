@@ -1,9 +1,5 @@
-from locale import locale_encoding_alias
-from ntpath import join
 import os
 import flask
-import spotipy
-from spotipy.oauth2 import SpotifyOAuth
 from flask_login import (
     UserMixin,
     login_user,
@@ -162,19 +158,12 @@ def favorites():
 @app.route("/1", methods=["GET", "POST"])
 def extra1():
     """extra route to work with"""
-    user = current_user.username
-    data = flask.request.form
-    query = data["search"]
-    "".join(query)
-    split = query.split()
-    s = "+"
-    s = s.join(split)
-    return flask.render_template("landingAfterSearch.html", s=s, user=user)
+    return
 
 
 @app.route("/2", methods=["GET", "POST"])
 def extra2():
-    """extra route to work with"""
+    """printing recommendations.html after searching api"""
     return flask.render_template("recommendations.html")
 
 
