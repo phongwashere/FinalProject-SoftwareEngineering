@@ -1,6 +1,9 @@
 from locale import locale_encoding_alias
+from ntpath import join
 import os
 import flask
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
 from flask_login import (
     UserMixin,
     login_user,
@@ -14,6 +17,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
+from spotifyapi import search, recommendedArtist
 
 load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
@@ -127,10 +131,20 @@ def landing():
     return flask.render_template("landing.html", user=user)
 
 
+# consider adding an edge case "where field is empty"
 @app.route("/recommendations", methods=["GET", "POST"])
 def recommendations():
     """recommendations page"""
-    return
+    data = flask.request.form
+    try:
+        artist_id = search(data["song_title"])
+        related_artists = recommendedArtist(artist_id)
+        return flask.render_template(
+            "recommendations.html", related_artists=related_artists
+        )
+    except:
+        flask.flash("Please enter a song title")
+        return flask.render_template("recommendations.html")
 
 
 @app.route("/random", methods=["GET", "POST"])
@@ -161,12 +175,12 @@ def extra1():
 @app.route("/2", methods=["GET", "POST"])
 def extra2():
     """extra route to work with"""
-    return
+    return flask.render_template("recommendations.html")
 
 
 @app.route("/3", methods=["GET", "POST"])
 def extra3():
-    """extra route to work with"""
+    """extra"""
     return
 
 

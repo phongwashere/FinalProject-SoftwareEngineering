@@ -1,0 +1,24 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <form method="POST" action="/recommendations">
+            <input type="text" name="song_title">
+            <input type="submit" value="Submit"> 
+        </form>
+
+        {% for artists in related_artists %}
+            <a href="https://www.youtube.com/results?search_query={{artists}}">{{artists}}</a>
+            <br>
+        {% endfor %}
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <b> {{message}} </b>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+ 
+    </body>
+</html>
