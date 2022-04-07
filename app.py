@@ -1,3 +1,4 @@
+from ast import Pass
 import os
 import flask
 from flask_login import (
@@ -9,8 +10,9 @@ from flask_login import (
     current_user,
 )
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import InputRequired, Length, ValidationError
+from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
 from spotifyapi import search, recommendedArtist
@@ -21,6 +23,7 @@ app.secret_key = os.getenv("secretKey")
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("db_url")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -32,6 +35,7 @@ class users(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
+    password = db.Column(db.String(), nullable=False)
 
 
 db.create_all()
@@ -49,6 +53,10 @@ class RegisterForm(FlaskForm):
     username = StringField(
         validators=[InputRequired(), Length(min=5, max=15)],
         render_kw={"placeholder": "Username"},
+    )
+    password = PasswordField(
+        validators=[InputRequired(), Length(min=5, max=15)],
+        render_kw={"placeholder": "Password"},
     )
     submit = SubmitField("Register")
 
@@ -68,6 +76,10 @@ class LoginForm(FlaskForm):
         validators=[InputRequired(), Length(min=5, max=15)],
         render_kw={"placeholder": "Username"},
     )
+    password = PasswordField(
+        validators=[InputRequired(), Length(min=5, max=15)],
+        render_kw={"placeholder": "Password"},
+    )
     submit = SubmitField("Login")
 
 
@@ -84,8 +96,9 @@ def login():
     if form.validate_on_submit():
         user = users.query.filter_by(username=form.username.data).first()
         if user:
-            login_user(user)
-            return flask.redirect(flask.url_for("landing"))
+            if bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                return flask.redirect(flask.url_for("landing"))
         else:
             flask.flash("User does not exist")
     return flask.render_template("login.html", form=form)
@@ -96,7 +109,10 @@ def register():
     """register account"""
     form = RegisterForm()
     if form.validate_on_submit():
-        new_user = users(username=form.username.data)
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode(
+            "utf8"
+        )
+        new_user = users(username=form.username.data, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         return flask.redirect(flask.url_for("login"))
