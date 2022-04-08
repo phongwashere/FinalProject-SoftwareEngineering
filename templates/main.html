@@ -4,5 +4,25 @@
     <body>
         <a href="{{ url_for('login') }}">Press here to login!</a>
         <a href="{{ url_for('register') }}">Press here to signup!</a>
+        <br>
+        <h2>POP</h2>
+        {% for song in pop %}
+        {{song}},
+        {% endfor %}
+        <br>
+        <h2>HIP HOP</h2>
+        {% for song in hiphop %}
+        {{song}},
+        {% endfor %}
+        <br>
+        <h2>RnB</h2>
+        {% for song in rnb %}
+        {{song}},
+        {% endfor %}
+        <br>
+        <h2>COUNTRY</h2>
+        {% for song in country %}
+        {{song}},
+        {% endfor %}
     </body>
 </html>

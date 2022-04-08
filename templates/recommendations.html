@@ -10,19 +10,12 @@
         <input type="text" name="song_title">
         <input type="submit" value="Submit">
     </form>
+    {{flash}}<br>
 
     {% for artists in related_artists %}
     <a href="https://www.youtube.com/results?search_query={{artists}}">{{artists}}</a>
     <br>
     {% endfor %}
-
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <b> {{message}} </b>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
 
 </body>
 

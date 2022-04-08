@@ -14,7 +14,7 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
-from spotifyapi import search, recommendedArtist
+from spotifyapi import search, recommendedArtist, categoryPlaylist, getTracks
 
 load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
@@ -141,7 +141,13 @@ def logout():
 @app.route("/main", methods=["GET", "POST"])
 def main():
     """initial landing page"""
-    return flask.render_template("main.html")
+    pop = getTracks(categoryPlaylist("pop"))
+    hiphop = getTracks(categoryPlaylist("hiphop"))
+    rnb = getTracks(categoryPlaylist("rnb"))
+    country = getTracks(categoryPlaylist("country"))
+    return flask.render_template(
+        "main.html", pop=pop, hiphop=hiphop, rnb=rnb, country=country
+    )
 
 
 @app.route("/landing", methods=["GET", "POST"])
@@ -149,7 +155,13 @@ def main():
 def landing():
     """landing page after using logs in"""
     user = current_user.username
-    return flask.render_template("landing.html", user=user)
+    pop = getTracks(categoryPlaylist("pop"))
+    hiphop = getTracks(categoryPlaylist("hiphop"))
+    rnb = getTracks(categoryPlaylist("rnb"))
+    country = getTracks(categoryPlaylist("country"))
+    return flask.render_template(
+        "landing.html", pop=pop, hiphop=hiphop, rnb=rnb, country=country, user=user
+    )
 
 
 # consider adding an edge case "where field is empty"
@@ -164,8 +176,8 @@ def recommendations():
             "recommendations.html", related_artists=related_artists
         )
     except:
-        flask.flash("Please enter a song title")
-        return flask.render_template("recommendations.html")
+        flash = "Please enter a song title"
+        return flask.render_template("recommendations.html", flash=flash)
 
 
 @app.route("/random", methods=["GET", "POST"])
@@ -190,14 +202,14 @@ def favorites():
 
 @app.route("/1", methods=["GET", "POST"])
 def extra1():
-    """extra route to work with"""
-    return
+    """no flash when loading page"""
+    return flask.render_template("recommendations.html")
 
 
 @app.route("/2", methods=["GET", "POST"])
 def extra2():
-    """printing recommendations.html after searching api"""
-    return flask.render_template("recommendations.html")
+    """extra route to work with"""
+    return
 
 
 @app.route("/3", methods=["GET", "POST"])
