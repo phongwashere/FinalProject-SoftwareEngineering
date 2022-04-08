@@ -5,6 +5,8 @@
 * Humaira Ridi
 * Phong Vu
 
+Application can be found at: 
+
 ## Description of Project
 
 Tunes is a web application created for a fun way to explore new music. It contains features like a login/register page, 
@@ -19,7 +21,6 @@ framework is running in app.py, and the API fetching is done in spotifyapi.py. I
 
 ### Heroku
 The application is deployed on Heroku. We created a heroku database in order to store information for the application. 
-The application can be found at: ENTER URL FOR HEROKU DEPLOYMENT
 
 ### Database 
 We created 3 separate tables: a User table (for storing username information), a favorite songs table (for storing a song and the current user), and a 
