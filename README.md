@@ -12,7 +12,7 @@ Kanban board can be found at: https://github.com/phongwashere/FinalProject-Softw
 ## Description of Project
 
 Tunes is a web application created for a fun way to explore new music. It contains features like a login/register page, 
-a landing page, a recommmendations page, a favorites page. This web application is served via the flask framework and deployed on Heroku. 
+a landing page, a recommmendations page, and a favorites page. This web application is served via the flask framework and deployed on Heroku. 
 
 ## Layout of Project
 
@@ -54,3 +54,37 @@ and allows the user to add and delete a favorite song/artist to the webpage. The
 del_fav_song(), save_fav_artist(), del_fav_artist(), and favorites() within app.py. 
 
 ## How to run locally?
+#### Install general libraries
+1. pip install python-dotenv
+2. pip install requests
+3. pip install flask
+4. pip install os
+5. pip install flask_bcrypt
+6. pip install flask_wtf
+7. pip install flask_sqlalchemy
+8. pip install flask_login
+#### PostgreSQL Setup
+5. brew install postgresql (if on mac)
+6. brew services start postgresql (if on mac)
+7. psql -h localhost  # this is just to test out that postgresql is installed okay - type "\q" to quit
+8. pip install psycopg2-binary
+9. pip install Flask-SQLAlchemy==2.1
+10. pip install flask-login
+#### Heroku Setup
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)  # install Homebrew
+brew tap heroku/brew && brew install heroku  # install Heroku CLI
+#### Adding to the .env file
+You would need to create a .env file within the project and add
+* export db_url="name of your url" change the url to say postgresql!
+* export secretKey="secret key"
+* export client_id="client id obtained from Spotify"
+* export client_secret="client secret key obtained from Spotify"
+* export redirect_uri="redirect url" and whitelist this on Spotify dashboard 
+#### How to make database
+* git init, add + commit all changed files with git
+* heroku login -i
+* heroku create
+* heroku addons:create heroku-postgresql:hobby-dev
+* heroku config
+#### How to run app
+Type python or python3 app.py into your terminal once you are within the correct directory
