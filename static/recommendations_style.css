@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins&display=swap');
+html{
+    min-height: 100%;
+}
+body{
+    background: rgb(100,119,202);
+    background: linear-gradient(168deg, rgba(100,119,202,1) 0%, rgba(213,132,202,1) 94%);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    background-color: aliceblue;
+    height: 50px;
+}
+nav a{
+    color: rgb(16, 20, 95);;
+    margin-top: 12px;
+    text-decoration: none;
+    padding: 22px;
+    justify-content: end;
+}
+nav a:hover{
+    color:rgb(162, 123, 163);
+}
+
+.content{
+    color: aliceblue;
+    margin: 0 auto;
+    text-align: center;
+ 
+}
+.artists-grid{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: 'Anonymous Pro', monospace;
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.artists-grid a{
+    text-decoration: none;
+    color: rgb(231, 244, 255);
+}
+.artists-grid a:hover{
+    color:rgb(16, 20, 95);
+}
