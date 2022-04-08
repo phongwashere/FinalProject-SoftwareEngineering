@@ -7,6 +7,8 @@
 
 Application can be found at: 
 
+Kanban board can be found at: https://github.com/phongwashere/FinalProject-SoftwareEngineering/projects/1
+
 ## Description of Project
 
 Tunes is a web application created for a fun way to explore new music. It contains features like a login/register page, 
