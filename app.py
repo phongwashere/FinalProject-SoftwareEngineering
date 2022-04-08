@@ -1,4 +1,3 @@
-from ast import Pass
 import os
 import flask
 from flask_login import (
@@ -179,8 +178,8 @@ def extra1():
 
 @app.route("/2", methods=["GET", "POST"])
 def extra2():
-    """printing recommendations.html after searching api"""
-    return flask.render_template("recommendations.html")
+    """extra route to work with"""
+    return
 
 
 @app.route("/3", methods=["GET", "POST"])
