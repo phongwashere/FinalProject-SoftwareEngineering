@@ -1,8 +1,31 @@
 <html>
-    <head>
-    </head>
-    <body>
-        <a href="{{ url_for('login') }}">Press here to login!</a>
-        <a href="{{ url_for('register') }}">Press here to signup!</a>
-    </body>
+
+<head>
+</head>
+
+<body>
+    <a href="{{ url_for('login') }}">Press here to login!</a>
+    <a href="{{ url_for('register') }}">Press here to signup!</a>
+    <br>
+    <h2>POP</h2>
+    {% for song in pop %}
+    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>,
+    {% endfor %}
+    <br>
+    <h2>HIP HOP</h2>
+    {% for song in hiphop %}
+    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>,
+    {% endfor %}
+    <br>
+    <h2>RnB</h2>
+    {% for song in rnb %}
+    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>,
+    {% endfor %}
+    <br>
+    <h2>COUNTRY</h2>
+    {% for song in country %}
+    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>,
+    {% endfor %}
+</body>
+
 </html>

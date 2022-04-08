@@ -1,3 +1,6 @@
+"""
+main app
+"""
 import os
 import flask
 from flask_login import (
@@ -14,7 +17,7 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
-from spotifyapi import search, recommendedArtist
+from spotifyapi import search, recommendedArtist, categoryPlaylist, getTracks
 
 load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
@@ -35,6 +38,22 @@ class users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(), nullable=False)
+
+
+class favSongs(db.Model):
+    """creating favorite songs database"""
+
+    id = db.Column(db.Integer, primary_key=True)
+    song = db.Column(db.String(50))
+    username = db.Column(db.String(50))
+
+
+class favArtists(db.Model):
+    """creating favorite artists database"""
+
+    id = db.Column(db.Integer, primary_key=True)
+    artist = db.Column(db.String(50))
+    username = db.Column(db.String(50))
 
 
 db.create_all()
@@ -131,7 +150,13 @@ def logout():
 @app.route("/main", methods=["GET", "POST"])
 def main():
     """initial landing page"""
-    return flask.render_template("main.html")
+    pop = getTracks(categoryPlaylist("pop"))
+    hiphop = getTracks(categoryPlaylist("hiphop"))
+    rnb = getTracks(categoryPlaylist("rnb"))
+    country = getTracks(categoryPlaylist("country"))
+    return flask.render_template(
+        "main.html", pop=pop, hiphop=hiphop, rnb=rnb, country=country
+    )
 
 
 @app.route("/landing", methods=["GET", "POST"])
@@ -139,7 +164,13 @@ def main():
 def landing():
     """landing page after using logs in"""
     user = current_user.username
-    return flask.render_template("landing.html", user=user)
+    pop = getTracks(categoryPlaylist("pop"))
+    hiphop = getTracks(categoryPlaylist("hiphop"))
+    rnb = getTracks(categoryPlaylist("rnb"))
+    country = getTracks(categoryPlaylist("country"))
+    return flask.render_template(
+        "landing.html", pop=pop, hiphop=hiphop, rnb=rnb, country=country, user=user
+    )
 
 
 # consider adding an edge case "where field is empty"
@@ -154,8 +185,8 @@ def recommendations():
             "recommendations.html", related_artists=related_artists
         )
     except:
-        flask.flash("Please enter a song title")
-        return flask.render_template("recommendations.html")
+        flash = "Please enter a song title"
+        return flask.render_template("recommendations.html", flash=flash)
 
 
 @app.route("/random", methods=["GET", "POST"])
@@ -167,13 +198,21 @@ def random():
 @app.route("/favorites", methods=["GET", "POST"])
 def favorites():
     """favorites page"""
-    return
+    fav_songs = favSongs.query.filter_by(username=current_user.username).all()
+    fav_artists = favArtists.query.filter_by(username=current_user.username).all()
+    return flask.render_template(
+        "favorites.html",
+        num_songs=len(fav_songs),
+        fav_songs=[favSong.song for favSong in fav_songs],
+        num_artists=len(fav_artists),
+        fav_artists=[favArtist.artist for favArtist in fav_artists],
+    )
 
 
 @app.route("/1", methods=["GET", "POST"])
 def extra1():
-    """extra route to work with"""
-    return
+    """no flash when loading page"""
+    return flask.render_template("recommendations.html")
 
 
 @app.route("/2", methods=["GET", "POST"])
@@ -192,6 +231,52 @@ def extra3():
 def extra4():
     """extra route to work with"""
     return
+
+
+@app.route("/save_fav_song", methods=["GET", "POST"])
+def save_fav_song():
+    """allows user to save a song on the favorites page"""
+    fav_song_name = flask.request.form.get("favSong")
+    fav_song = favSongs(song=fav_song_name, username=current_user.username)
+    db.session.add(fav_song)
+    db.session.commit()
+    return flask.redirect("/favorites")
+
+
+@app.route("/del_fav_song", methods=["GET", "POST"])
+def del_fav_song():
+    """allows user to delete a song on the favorites page"""
+    fav_song_name = flask.request.form.get("favSong")
+    fav_song = favSongs.query.filter_by(
+        song=fav_song_name, username=current_user.username
+    ).first()
+    if fav_song is not None:
+        db.session.delete(fav_song)
+        db.session.commit()
+    return flask.redirect("/favorites")
+
+
+@app.route("/save_fav_artist", methods=["GET", "POST"])
+def save_fav_artist():
+    """allows user to save a artist on the favorites page"""
+    fav_artist_name = flask.request.form.get("favArtist")
+    fav_artist = favArtists(artist=fav_artist_name, username=current_user.username)
+    db.session.add(fav_artist)
+    db.session.commit()
+    return flask.redirect("/favorites")
+
+
+@app.route("/del_fav_artist", methods=["GET", "POST"])
+def del_fav_artist():
+    """allows user to delete an artist on the favorites page"""
+    fav_artist_name = flask.request.form.get("favArtist")
+    fav_artist = favArtists.query.filter_by(
+        artist=fav_artist_name, username=current_user.username
+    ).first()
+    if fav_artist is not None:
+        db.session.delete(fav_artist)
+        db.session.commit()
+    return flask.redirect("/favorites")
 
 
 app.run(debug=True)
