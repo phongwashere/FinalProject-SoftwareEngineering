@@ -1,7 +1,7 @@
 # Tunes Final Project 
 
 ## Creators
-* Ashwini Aphalee
+* Ashwini Aphale
 * Humaira Ridi
 * Phong Vu
 
