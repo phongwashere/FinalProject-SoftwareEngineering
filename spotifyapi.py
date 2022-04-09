@@ -37,18 +37,15 @@ def recommendedartist(id):
             client_id=os.getenv("client_id"), client_secret=os.getenv("client_secret")
         )
     )
-    try:
-        query = sp.artist_related_artists(artist_id=id)
-        item = query["artists"]
-        artists = []
-        if len(item) > 0:
-            for dic in item:
-                for i in dic:
-                    if i == "name":
-                        artists.append(dic[i])
-        return artists[0:10]  # returns list of 10 related artists
-    except:
-        return "invalid id"
+    query = sp.artist_related_artists(artist_id=id)
+    item = query["artists"]
+    artists = []
+    if len(item) > 0:
+        for dic in item:
+            for i in dic:
+                if i == "name":
+                    artists.append(dic[i])
+    return artists[0:10]  # returns list of 10 related artists
 
 
 def categoryplaylist(genre):

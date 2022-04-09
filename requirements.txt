@@ -1,0 +1,9 @@
+Flask
+python-dotenv
+requests
+psycopg2-binary
+Flask-SQLAlchemy
+flask-login
+flask_wtf
+flask_bcrypt
+spotipy

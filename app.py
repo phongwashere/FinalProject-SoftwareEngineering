@@ -175,6 +175,7 @@ def landing():
 
 # consider adding an edge case "where field is empty"
 @app.route("/recommendations", methods=["GET", "POST"])
+@login_required
 def recommendations():
     """recommendations page"""
     data = flask.request.form
@@ -190,14 +191,17 @@ def recommendations():
 
 
 @app.route("/random", methods=["GET", "POST"])
+@login_required
 def random():
     """random page"""
     return
 
 
 @app.route("/favorites", methods=["GET", "POST"])
+@login_required
 def favorites():
     """favorites page"""
+    user = current_user.username
     fav_songs = favSongs.query.filter_by(username=current_user.username).all()
     fav_artists = favArtists.query.filter_by(username=current_user.username).all()
     return flask.render_template(
@@ -206,10 +210,12 @@ def favorites():
         fav_songs=[favSong.song for favSong in fav_songs],
         num_artists=len(fav_artists),
         fav_artists=[favArtist.artist for favArtist in fav_artists],
+        user=user,
     )
 
 
 @app.route("/1", methods=["GET", "POST"])
+@login_required
 def extra1():
     """no flash when loading page"""
     return flask.render_template("recommendations.html")
@@ -234,6 +240,7 @@ def extra4():
 
 
 @app.route("/save_fav_song", methods=["GET", "POST"])
+@login_required
 def save_fav_song():
     """allows user to save a song on the favorites page"""
     fav_song_name = flask.request.form.get("favSong")
@@ -244,6 +251,7 @@ def save_fav_song():
 
 
 @app.route("/del_fav_song", methods=["GET", "POST"])
+@login_required
 def del_fav_song():
     """allows user to delete a song on the favorites page"""
     fav_song_name = flask.request.form.get("favSong")
@@ -257,6 +265,7 @@ def del_fav_song():
 
 
 @app.route("/save_fav_artist", methods=["GET", "POST"])
+@login_required
 def save_fav_artist():
     """allows user to save a artist on the favorites page"""
     fav_artist_name = flask.request.form.get("favArtist")
@@ -267,6 +276,7 @@ def save_fav_artist():
 
 
 @app.route("/del_fav_artist", methods=["GET", "POST"])
+@login_required
 def del_fav_artist():
     """allows user to delete an artist on the favorites page"""
     fav_artist_name = flask.request.form.get("favArtist")

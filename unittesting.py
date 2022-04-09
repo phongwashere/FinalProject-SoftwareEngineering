@@ -47,13 +47,6 @@ class Spotifytest(unittest.TestCase):
         actual_output = recommendedartist(test_id)
         self.assertEqual(expected_output, actual_output)
 
-    def test_invalid_id(self):
-        """test if invalid id is entered"""
-        test_id = "fheiobfgpuiqebgfqpe"
-        expected_output = "invalid id"
-        actual_output = recommendedartist(test_id)
-        self.assertEqual(expected_output, actual_output)
-
     def test_categoryplaylist(self):
         """test if categoryplaylist returns a playlist id"""
         test_id = "pop"

@@ -16,8 +16,10 @@
 </p>
 
 <body>
-    <a href="{{ url_for('main') }}">main page</a>
-    <a href="{{ url_for('login') }}">Already have an account? Login!</a>
+    <nav>
+        <a href="{{ url_for('main') }}">main page</a>
+        <a href="{{ url_for('login') }}">Already have an account? Login!</a>
+    </nav>
     <h1>Signup Page</h1>
     <form method="POST" action="">
         {{ form.hidden_tag() }}

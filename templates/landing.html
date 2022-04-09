@@ -8,7 +8,7 @@
     <nav>
         <a href="{{ url_for('logout') }}">Press here to logout!</a>
         <a href="{{ url_for('extra1') }}">Press here to get recommendations!</a>
-        <a href="{{ url_for('favorites') }}">Favorites</a>
+        <a href="{{ url_for('favorites') }}">Press here to go to your favorites!</a>
     </nav>
 
     <p>Hi {{user}}!</p>
@@ -51,9 +51,11 @@
         <div class="genre-content">
             <h2>COUNTRY</h2>
             {% for song in country %}
-            <ul><li>
-                <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
-            </li></ul>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                </li>
+            </ul>
             {% endfor %}
         </div>
     </div>
