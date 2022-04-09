@@ -5,7 +5,7 @@
 * Humaira Ridi
 * Phong Vu
 
-Application can be found at: 
+Application can be found at: https://guarded-lowlands-27554.herokuapp.com/
 
 Kanban board can be found at: https://github.com/phongwashere/FinalProject-SoftwareEngineering/projects/1
 
