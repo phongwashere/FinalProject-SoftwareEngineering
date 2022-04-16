@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Favorites</title>
-        <link rel="stylesheet" href="#">
-    </head>
-    <body>
-        <!--Navbar-->
-        <a href="{{ url_for('logout') }}">Press here to logout!</a>
-        <a href="{{ url_for('landing') }}">Press here to go to the landing page</a>
-        <a href="{{ url_for('extra1') }}">Press here to get recommendations!</a>
-        <a href="{{ url_for('favorites') }}">Favorites</a>
 
-        <div class="content-with-header">
-            <h1>My Favorites</h1>
+<head>
+    <title>My Favorites</title>
+    <link rel="stylesheet" href="#">
+</head>
 
-            <div class="content" style="display: flex;">
+<body>
+    <!--Navbar-->
+    <a href="{{ url_for('logout') }}">Press here to logout!</a>
+    <a href="{{ url_for('landing') }}">Press here to go to the landing page</a>
+    <a href="{{ url_for('extra1') }}">Press here to get recommendations!</a>
 
-                <div class="database database-left">
-                    <form method="POST" action="/save_fav_song">
-                        <input type="text" placeholder="Enter a song title" name="favSong">
-                        <input type="submit" value="Add Song">
-                    </form>
-                    <form method="POST" action="/del_fav_song">
-                        <input type="text" placeholder="Enter a song to delete" name="favSong">
-                        <input type="submit" value="Delete Song">
-                    </form>
+    <div class="content-with-header">
+        <h1>My Favorites</h1>
 
-                    <h2>Songs</h2>
+        <div class="content" style="display: flex;">
 
-                    <ol>
-                        {% for i in range(num_songs) %}
-                            <li>
-                                <p>{{fav_songs[i]}}</p>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                </div>
+            <div class="database database-left">
+                <form method="POST" action="/save_fav_song">
+                    <input type="text" placeholder="Enter a song title" name="favSong">
+                    <input type="submit" value="Add Song">
+                </form>
+                <form method="POST" action="/del_fav_song">
+                    <input type="text" placeholder="Enter a song to delete" name="favSong">
+                    <input type="submit" value="Delete Song">
+                </form>
 
-                
-                <div class="database database-right">
-                    <form method="POST" action="/save_fav_artist">
-                        <input type="text" placeholder="Enter an artist name" name="favArtist">
-                        <input type="submit" value="Add Artist">
-                    </form>
-                    <form method="POST" action="/del_fav_artist">
-                        <input type="text" placeholder="Enter an artist to delete" name="favArtist">
-                        <input type="submit" value="Delete Artist">
-                    </form>
-                    <h2>Artists</h2>
-                    <ol>
-                        {% for i in range(num_artists) %}
-                            <li>
-                                <p>{{fav_artists[i]}}</p>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                </div>
+                <h2>Songs</h2>
+
+                <ol>
+                    {% for i in range(num_songs) %}
+                    <li>
+                        <p>{{fav_songs[i]}}</p>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+
+            <div class="database database-right">
+                <form method="POST" action="/save_fav_artist">
+                    <input type="text" placeholder="Enter an artist name" name="favArtist">
+                    <input type="submit" value="Add Artist">
+                </form>
+                <form method="POST" action="/del_fav_artist">
+                    <input type="text" placeholder="Enter an artist to delete" name="favArtist">
+                    <input type="submit" value="Delete Artist">
+                </form>
+                <h2>Artists</h2>
+                <ol>
+                    {% for i in range(num_artists) %}
+                    <li>
+                        <p>{{fav_artists[i]}}</p>
+                    </li>
+                    {% endfor %}
+                </ol>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

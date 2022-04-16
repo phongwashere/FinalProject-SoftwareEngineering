@@ -1,3 +1,6 @@
+"""
+main app
+"""
 import os
 import flask
 from flask_login import (
@@ -14,7 +17,7 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
-from spotifyapi import search, recommendedArtist, categoryPlaylist, getTracks
+from spotifyapi import search, recommendedartist, categoryplaylist, gettracks
 
 load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
@@ -147,10 +150,10 @@ def logout():
 @app.route("/main", methods=["GET", "POST"])
 def main():
     """initial landing page"""
-    pop = getTracks(categoryPlaylist("pop"))
-    hiphop = getTracks(categoryPlaylist("hiphop"))
-    rnb = getTracks(categoryPlaylist("rnb"))
-    country = getTracks(categoryPlaylist("country"))
+    pop = gettracks(categoryplaylist("pop"))
+    hiphop = gettracks(categoryplaylist("hiphop"))
+    rnb = gettracks(categoryplaylist("rnb"))
+    country = gettracks(categoryplaylist("country"))
     return flask.render_template(
         "main.html", pop=pop, hiphop=hiphop, rnb=rnb, country=country
     )
@@ -161,10 +164,10 @@ def main():
 def landing():
     """landing page after using logs in"""
     user = current_user.username
-    pop = getTracks(categoryPlaylist("pop"))
-    hiphop = getTracks(categoryPlaylist("hiphop"))
-    rnb = getTracks(categoryPlaylist("rnb"))
-    country = getTracks(categoryPlaylist("country"))
+    pop = gettracks(categoryplaylist("pop"))
+    hiphop = gettracks(categoryplaylist("hiphop"))
+    rnb = gettracks(categoryplaylist("rnb"))
+    country = gettracks(categoryplaylist("country"))
     return flask.render_template(
         "landing.html", pop=pop, hiphop=hiphop, rnb=rnb, country=country, user=user
     )
@@ -177,12 +180,12 @@ def recommendations():
     data = flask.request.form
     try:
         artist_id = search(data["song_title"])
-        related_artists = recommendedArtist(artist_id)
+        related_artists = recommendedartist(artist_id)
         return flask.render_template(
             "recommendations.html", related_artists=related_artists
         )
     except:
-        flash = "Please enter a song title"
+        flash = "Invalid, try again."
         return flask.render_template("recommendations.html", flash=flash)
 
 

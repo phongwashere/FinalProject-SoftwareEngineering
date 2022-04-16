@@ -6,6 +6,8 @@
 <body>
     <a href="{{ url_for('logout') }}">Press here to logout!</a>
     <a href="{{ url_for('landing') }}">Press here to go to landing page!</a>
+    <a href="{{ url_for('favorites') }}">Favorites</a>
+    <h2>Enter a song title and get artists you might like!</h2>
     <form method="POST" action="/recommendations">
         <input type="text" name="song_title">
         <input type="submit" value="Submit">
@@ -13,7 +15,7 @@
     {{flash}}<br>
 
     {% for artists in related_artists %}
-    <a href="https://www.youtube.com/results?search_query={{artists}}">{{artists}}</a>
+    <a href="https://www.youtube.com/results?search_query={{artists}}+song+covers">{{artists}}</a>
     <br>
     {% endfor %}
 
