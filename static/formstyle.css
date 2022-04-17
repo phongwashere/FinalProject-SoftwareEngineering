@@ -1,34 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins&display=swap');
-ul{
+
+ul {
     font-size: larger;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-form{
+form {
     text-align: center;
 }
 
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-nav{
-    background-color: aliceblue;
-    height: 50px;
+.fixed_header {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background-color: #f8f8ff;
+    width: 100%;
+    z-index: 99;
 }
-nav a{
-    color: rgb(16, 20, 95);;
-    margin-top: 12px;
+
+.fixed_header a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 18px 14px;
     text-decoration: none;
-    padding: 22px;
-    justify-content: end;
+    top: 200px;
+    font-size: 20px;
 }
-nav a:hover{
-    color:rgb(162, 123, 163);
+
+.fixed_header a:hover {
+    background: rgba(213, 132, 202, 1);
+    color: white;
+}
+
+img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: -10px;
 }

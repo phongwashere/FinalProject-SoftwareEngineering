@@ -13,23 +13,6 @@ body {
     color: aliceblue;
 }
 
-nav {
-    background-color: aliceblue;
-    height: 50px;
-}
-
-nav a {
-    color: rgb(16, 20, 95);
-    ;
-    margin-top: 12px;
-    text-decoration: none;
-    padding: 22px;
-    justify-content: end;
-}
-
-nav a:hover {
-    color: rgb(162, 123, 163);
-}
 
 h1 {
     text-align: center;
@@ -71,4 +54,36 @@ a:hover {
 
 p {
     padding-left: 20px;
+}
+
+.fixed_header {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background-color: #f8f8ff;
+    width: 100%;
+    z-index: 99;
+}
+
+.fixed_header a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 18px 14px;
+    text-decoration: none;
+    top: 200px;
+    font-size: 20px;
+}
+
+.fixed_header a:hover {
+    background: rgba(213, 132, 202, 1);
+    color: white;
+}
+
+img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: -10px;
 }

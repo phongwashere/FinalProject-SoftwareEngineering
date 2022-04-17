@@ -16,10 +16,16 @@
 </p>
 
 <body>
-    <nav>
-        <a href="{{ url_for('main') }}">main page</a>
-        <a href="{{ url_for('register') }}">Don't have an account? Signup!</a>
-    </nav>
+    <div class="fixed_header">
+        <img src="static/tuneslogo.png" >
+        <a href="{{ url_for('main') }}">TOP TRENDING</a>
+        <a href="{{ url_for('register') }}">SIGNUP</a>
+    </div>
+    <!--need the br to show header of page, since nav bar covers it without-->>
+    <br>
+    <br>
+    <br>
+    
     <h1>Login Page</h1>
     <form method="POST" action="">
         {{ form.hidden_tag() }}

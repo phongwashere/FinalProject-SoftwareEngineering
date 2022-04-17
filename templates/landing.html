@@ -5,12 +5,17 @@
 </head>
 
 <body>
-    <nav>
-        <a href="{{ url_for('logout') }}">Press here to logout!</a>
-        <a href="{{ url_for('extra1') }}">Press here to get recommendations!</a>
-        <a href="{{ url_for('favorites') }}">Press here to go to your favorites!</a>
-    </nav>
+    <div class="fixed_header">
+        <img src="static/tuneslogo.png" >
+        <a href="{{ url_for('logout') }}">LOGOUT</a>
+        <a href="{{ url_for('extra1') }}">RECOMMENDATIONS</a>
+        <a href="{{ url_for('favorites') }}">FAVORITES</a>
+    </div>
 
+    <!--need the br to show header of page, since nav bar covers it without-->>
+    <br>
+    <br>
+    <br>
     <p>Hi {{user}}!</p>
 
     <h1>Top Trending</h1>

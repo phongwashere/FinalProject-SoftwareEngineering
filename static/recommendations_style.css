@@ -1,36 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins&display=swap');
-html{
+
+html {
     min-height: 100%;
 }
-body{
-    background: rgb(100,119,202);
-    background: linear-gradient(168deg, rgba(100,119,202,1) 0%, rgba(213,132,202,1) 94%);
+
+body {
+    background: rgb(100, 119, 202);
+    background: linear-gradient(168deg, rgba(100, 119, 202, 1) 0%, rgba(213, 132, 202, 1) 94%);
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-nav{
-    background-color: aliceblue;
-    height: 50px;
-}
-nav a{
-    color: rgb(16, 20, 95);;
-    margin-top: 12px;
-    text-decoration: none;
-    padding: 22px;
-    justify-content: end;
-}
-nav a:hover{
-    color:rgb(162, 123, 163);
+
+.fixed_header {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background-color: #f8f8ff;
+    width: 100%;
+    z-index: 99;
 }
 
-.content{
+.fixed_header a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 18px 14px;
+    text-decoration: none;
+    top: 200px;
+    font-size: 20px;
+}
+
+.fixed_header a:hover {
+    background: rgba(213, 132, 202, 1);
+    color: white;
+}
+
+img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: -10px;
+}
+
+.content {
     color: aliceblue;
     margin: 0 auto;
     text-align: center;
- 
+
 }
-.artists-grid{
+
+.artists-grid {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: 'Anonymous Pro', monospace;
@@ -39,14 +60,16 @@ nav a:hover{
     text-align: center;
     display: grid;
     grid-template-columns: auto auto;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
-.artists-grid a{
+
+.artists-grid a {
     text-decoration: none;
     color: rgb(231, 244, 255);
 }
-.artists-grid a:hover{
-    color:rgb(16, 20, 95);
+
+.artists-grid a:hover {
+    color: rgb(16, 20, 95);
 }

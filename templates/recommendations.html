@@ -5,11 +5,18 @@
 </head>
 
 <body>
-    <nav>
-        <a href="{{ url_for('logout') }}">Press here to logout!</a>
-        <a href="{{ url_for('landing') }}">Press here to go to landing page!</a>
-        <a href="{{ url_for('favorites') }}">Press here to go to your favorites!</a>
-    </nav>
+    <div class="fixed_header">
+        <img src="static/tuneslogo.png" >
+        <a href="{{ url_for('logout') }}">LOGOUT</a>
+        <a href="{{ url_for('landing') }}">TOP TRENDING</a>
+        <a href="{{ url_for('favorites') }}">FAVORITES</a>
+    </div>
+
+    <!--need the br to show header of page, since nav bar covers it without-->>
+    <br>
+    <br>
+    <br>
+    
     <div class="content">
         <h2>Get recommended artists by entering a song title!</h2>
         <form method="POST" action="/recommendations">

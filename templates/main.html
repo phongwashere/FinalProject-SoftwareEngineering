@@ -5,10 +5,15 @@
 </head>
 
 <body>
-    <nav>
-        <a href="{{ url_for('login') }}">Press here to login!</a>
-        <a href="{{ url_for('register') }}">Press here to signup!</a>
-    </nav>
+    <div class="fixed_header">
+        <img src="static/tuneslogo.png" >
+        <a href="{{ url_for('login') }}">LOGIN</a>
+        <a href="{{ url_for('register') }}">SIGNUP</a>
+    </div>
+    <!--need the br to show header of page, since nav bar covers it without-->>
+    <br>
+    <br>
+    <br>
 
 
     <h1>Top Trending</h1>
