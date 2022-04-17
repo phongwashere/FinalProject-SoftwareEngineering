@@ -5,7 +5,7 @@
 * Humaira Ridi
 * Phong Vu
 
-Application can be found at: 
+Application can be found at: https://guarded-lowlands-27554.herokuapp.com/
 
 Kanban board can be found at: https://github.com/phongwashere/FinalProject-SoftwareEngineering/projects/1
 
@@ -54,15 +54,15 @@ and allows the user to add and delete a favorite song/artist to the webpage. The
 del_fav_song(), save_fav_artist(), del_fav_artist(), and favorites() within app.py. 
 
 ## How to run locally?
-#### Install general libraries
+#### Install general libraries(use pip or pip3)
 1. pip install python-dotenv
 2. pip install requests
 3. pip install flask
-4. pip install os
 5. pip install flask_bcrypt
 6. pip install flask_wtf
 7. pip install flask_sqlalchemy
 8. pip install flask_login
+9. pip install spotipy
 #### PostgreSQL Setup
 5. brew install postgresql (if on mac)
 6. brew services start postgresql (if on mac)

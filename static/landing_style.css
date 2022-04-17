@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins&display=swap');
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: rgb(100, 119, 202);
+    background: linear-gradient(168deg, rgba(100, 119, 202, 1) 0%, rgba(213, 132, 202, 1) 94%);
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: aliceblue;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.genres {
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 34px;
+    margin: 0 auto;
+}
+
+.genre-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    margin: 10px 13px;
+    padding: 20px 23px;
+}
+
+.genre-content h2 {
+    text-align: center;
+}
+
+.genre-content li {
+    font-family: 'Anonymous Pro', monospace;
+    list-style: none;
+}
+
+.genre-content a {
+    text-decoration: none;
+    color: rgb(231, 244, 255);
+}
+
+a:hover {
+    color: rgb(16, 20, 95);
+}
+
+p {
+    padding-left: 20px;
+}
+
+.fixed_header {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background-color: #f8f8ff;
+    width: 100%;
+    z-index: 99;
+}
+
+.fixed_header a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 18px 14px;
+    text-decoration: none;
+    top: 200px;
+    font-size: 20px;
+}
+
+.fixed_header a:hover {
+    background: rgba(213, 132, 202, 1);
+    color: white;
+}
+
+img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: -10px;
+}

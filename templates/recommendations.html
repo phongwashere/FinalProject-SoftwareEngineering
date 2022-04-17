@@ -1,24 +1,39 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/static/recommendations_style.css">
 </head>
 
 <body>
-    <a href="{{ url_for('logout') }}">Press here to logout!</a>
-    <a href="{{ url_for('landing') }}">Press here to go to landing page!</a>
-    <a href="{{ url_for('favorites') }}">Favorites</a>
-    <h2>Enter a song title and get artists you might like!</h2>
-    <form method="POST" action="/recommendations">
-        <input type="text" name="song_title">
-        <input type="submit" value="Submit">
-    </form>
-    {{flash}}<br>
+    <div class="fixed_header">
+        <img src="static/tuneslogo.png" >
+        <a href="{{ url_for('logout') }}">LOGOUT</a>
+        <a href="{{ url_for('landing') }}">TOP TRENDING</a>
+        <a href="{{ url_for('favorites') }}">FAVORITES</a>
+    </div>
 
-    {% for artists in related_artists %}
-    <a href="https://www.youtube.com/results?search_query={{artists}}+song+covers">{{artists}}</a>
+    <!--need the br to show header of page, since nav bar covers it without-->>
     <br>
-    {% endfor %}
+    <br>
+    <br>
+    
+    <div class="content">
+        <h2>Get recommended artists by entering a song title!</h2>
+        <form method="POST" action="/recommendations">
+            <input type="text" name="song_title" placeholder="Song title">
+            <input type="submit" value="Submit">
+        </form>
+        {{flash}}<br>
+        <h2>Recommended Artists</h2>
+        <div class="artists-grid">
 
+            {% for artists in related_artists %}
+            <p>
+                <a href="https://www.youtube.com/results?search_query={{artists}}+song+covers">{{artists}}</a>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 
 </html>
