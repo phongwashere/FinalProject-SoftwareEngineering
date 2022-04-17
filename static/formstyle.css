@@ -1,16 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins&display=swap');
-ul{
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@500;800&display=swap');
+html{
+    min-height: 100%;
+}ul{
     font-size: larger;
 }
 
 h1{
     text-align: center;
+    font-size: 46px;
+    letter-spacing: 1px;
 }
-
-form{
-    text-align: center;
-}
-
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -31,4 +30,25 @@ nav a{
 }
 nav a:hover{
     color:rgb(162, 123, 163);
+}
+.image{
+    height: 210px;
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+.image img{
+    max-width: 100%;
+    max-height: 120%;
+    object-fit: cover;
+}
+.card .btn-primary {
+    background-color: rgb(100,119,202);
+    border-color: rgb(100,119,202);
+    width: 100%;
+}
+
+.card .btn-primary:hover {
+    background-color: rgb(88, 105, 177);
+    border-color: rgb(88, 105, 177);
 }

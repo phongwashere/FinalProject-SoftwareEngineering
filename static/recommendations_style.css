@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@500;800&display=swap');
 html{
     min-height: 100%;
 }
@@ -28,7 +28,19 @@ nav a:hover{
     color: aliceblue;
     margin: 0 auto;
     text-align: center;
- 
+    margin-top: 34px;
+    
+}
+.content h1{
+    font-size: 46px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+.content h4{
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding-bottom: 20px;
 }
 .artists-grid{
     padding-top: 20px;
@@ -42,6 +54,8 @@ nav a:hover{
     background-color: rgba(255,255,255,0.1);
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    /* font-family: 'Open Sans', sans-serif; */
+    letter-spacing: -1px;
 }
 .artists-grid a{
     text-decoration: none;
@@ -49,4 +63,14 @@ nav a:hover{
 }
 .artists-grid a:hover{
     color:rgb(16, 20, 95);
+    text-decoration: none;
+}
+.input-group .btn-primary{
+    background-color: rgb(100,119,202);
+    border-color: rgb(100,119,202);
+    width: 100%;
+}
+.input-group .btn-primary:hover{
+    background-color: rgb(88, 105, 177);
+    border-color: rgb(88, 105, 177);
 }
