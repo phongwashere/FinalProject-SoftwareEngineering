@@ -17,6 +17,7 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
+from random import choice
 from spotifyapi import (
     search,
     recommendedartist,
@@ -183,7 +184,6 @@ def landing():
     )
 
 
-# consider adding an edge case "where field is empty"
 @app.route("/recommendations", methods=["GET", "POST"])
 @login_required
 def recommendations():
@@ -258,7 +258,21 @@ def extra3():
 @app.route("/4", methods=["GET", "POST"])
 def extra4():
     """extra route to work with"""
-    return
+    genres = [
+        "pop",
+        "country",
+        "rnb",
+        "hiphop",
+        "jazz",
+        "indie",
+        "latin",
+        "rock",
+        "classical",
+    ]
+    randomgenre = choice(genres)
+    songs = gettracks(categoryplaylist(randomgenre))
+    song = choice(songs)
+    return flask.render_template("randompage.html", song=song)
 
 
 @app.route("/save_fav_song", methods=["GET", "POST"])

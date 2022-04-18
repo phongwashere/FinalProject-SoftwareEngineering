@@ -7,80 +7,91 @@
 
 <body>
     <div class="fixed_header">
-        <img src="static/tuneslogo.png" >
+        <img src="static/tuneslogo.png">
         <a href="{{ url_for('logout') }}">LOGOUT</a>
         <a href="{{ url_for('extra1') }}">RECOMMENDATIONS</a>
+        <a href="{{ url_for('extra4') }}">RANDOM SONG</a>
         <a href="{{ url_for('favorites') }}">FAVORITES</a>
     </div>
 
-    <!--need the br to show header of page, since nav bar covers it without-->>
     <br>
     <br>
     <br>
-    
+
     <div class="main-content">
         <p>Hi {{user}}!</p>
-      
-    <h1>Top Trending</h1>
-    <div class="genres">
-        <div class="genre-content">
-            <h2>POP</h2>
-            {% for song in pop %}
-            <ul>
-                <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
-                </li>
-            </ul>
-            {% endfor %}
-        </div>
 
-        <div class="genre-content">
-            <h2>HIP HOP</h2>
-            {% for song in hiphop %}
-            <ul>
-                <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
-                </li>
-            </ul>
-            {% endfor %}
-        </div>
+        <h1>Top Trending</h1>
+        <div class="genres">
+            <div class="genre-content">
+                <h2>POP</h2>
+                {% for song in pop %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
 
-        <div class="genre-content">
-            <h2>RnB</h2>
-            {% for song in rnb %}
-            <ul>
-                <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
-                </li>
-            </ul>
-            {% endfor %}
-        </div>
+            <div class="genre-content">
+                <h2>HIP HOP</h2>
+                {% for song in hiphop %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
 
-        <div class="genre-content">
-            <h2>COUNTRY</h2>
-            {% for song in country %}
-            <ul>
-                <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
-                </li>
-            </ul>
-            {% endfor %}
-        </div>
-    </div>
-    <br>
-        
-    <div class="about">
-        <div class="image">
-            <img src="static/tuneslogo.png">
-        </div>
+            <div class="genre-content">
+                <h2>RnB</h2>
+                {% for song in rnb %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
 
-        <div class="about-text">
-            <h1>About Tunes</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis quod, illo saepe expedita ullam exercitationem ipsam deserunt, cum suscipit vero voluptates blanditiis explicabo voluptatibus id ea iusto? Distinctio nesciunt voluptates asperiores aspernatur quis assumenda deserunt. Sed hic praesentium nisi illo laudantium nobis quaerat ipsum voluptates, voluptate voluptatem ipsam eius, amet facilis ipsa dolore a quidem!</p> 
-            <h3>Who we are</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quis animi soluta aspernatur dicta minus eaque, harum aliquam neque sequi culpa vero. Officia, voluptas labore beatae vitae laborum autem porro voluptatem dolorum cumque odio.</p>
-        </div> 
-    </div>
+            <div class="genre-content">
+                <h2>COUNTRY</h2>
+                {% for song in country %}
+                <ul>
+                    <li>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <br>
+
+        <div class="about">
+            <div class="image">
+                <img src="static/tuneslogo.png">
+            </div>
+
+            <div class="about-text">
+                <h1>About Tunes</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis quod, illo saepe
+                    expedita
+                    ullam exercitationem ipsam deserunt, cum suscipit vero voluptates blanditiis explicabo voluptatibus
+                    id
+                    ea iusto? Distinctio nesciunt voluptates asperiores aspernatur quis assumenda deserunt. Sed hic
+                    praesentium nisi illo laudantium nobis quaerat ipsum voluptates, voluptate voluptatem ipsam eius,
+                    amet
+                    facilis ipsa dolore a quidem!</p>
+                <h3>Who we are</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quis animi soluta aspernatur dicta
+                    minus
+                    eaque, harum aliquam neque sequi culpa vero. Officia, voluptas labore beatae vitae laborum autem
+                    porro
+                    voluptatem dolorum cumque odio.</p>
+            </div>
+        </div>
 </body>
 
 </html>
