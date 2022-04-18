@@ -24,7 +24,7 @@
             {% for song in pop %}
             <ul>
                 <li>
-                    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                 </li>
             </ul>
 
@@ -36,7 +36,7 @@
             {% for song in hiphop %}
             <ul>
                 <li>
-                    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                 </li>
             </ul>
             {% endfor %}
@@ -48,7 +48,7 @@
             {% for song in rnb %}
             <ul>
                 <li>
-                    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                 </li>
             </ul>
             {% endfor %}
@@ -59,7 +59,7 @@
             {% for song in country %}
             <ul>
                 <li>
-                    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                 </li>
             </ul>
 

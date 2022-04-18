@@ -14,7 +14,6 @@
         <a href="{{ url_for('favorites') }}">FAVORITES</a>
     </div>
 
-    <!--need the br to show header of page, since nav bar covers it without-->>
     <br>
     <br>
     <br>
@@ -29,7 +28,7 @@
                 {% for song in pop %}
                 <ul>
                     <li>
-                        <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                     </li>
                 </ul>
                 {% endfor %}
@@ -40,7 +39,7 @@
                 {% for song in hiphop %}
                 <ul>
                     <li>
-                        <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                     </li>
                 </ul>
                 {% endfor %}
@@ -51,7 +50,7 @@
                 {% for song in rnb %}
                 <ul>
                     <li>
-                        <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                     </li>
                 </ul>
                 {% endfor %}
@@ -62,34 +61,37 @@
                 {% for song in country %}
                 <ul>
                     <li>
-                        <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
+                        <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
                     </li>
                 </ul>
                 {% endfor %}
             </div>
         </div>
-    </div>
-    <br>
+        <br>
 
-    <div class="about">
-        <div class="image">
-            <img src="static/tuneslogo.png">
+        <div class="about">
+            <div class="image">
+                <img src="static/tuneslogo.png">
+            </div>
+
+            <div class="about-text">
+                <h1>About Tunes</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis quod, illo saepe
+                    expedita
+                    ullam exercitationem ipsam deserunt, cum suscipit vero voluptates blanditiis explicabo voluptatibus
+                    id
+                    ea iusto? Distinctio nesciunt voluptates asperiores aspernatur quis assumenda deserunt. Sed hic
+                    praesentium nisi illo laudantium nobis quaerat ipsum voluptates, voluptate voluptatem ipsam eius,
+                    amet
+                    facilis ipsa dolore a quidem!</p>
+                <h3>Who we are</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quis animi soluta aspernatur dicta
+                    minus
+                    eaque, harum aliquam neque sequi culpa vero. Officia, voluptas labore beatae vitae laborum autem
+                    porro
+                    voluptatem dolorum cumque odio.</p>
+            </div>
         </div>
-
-        <div class="about-text">
-            <h1>About Tunes</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis quod, illo saepe expedita
-                ullam exercitationem ipsam deserunt, cum suscipit vero voluptates blanditiis explicabo voluptatibus id
-                ea iusto? Distinctio nesciunt voluptates asperiores aspernatur quis assumenda deserunt. Sed hic
-                praesentium nisi illo laudantium nobis quaerat ipsum voluptates, voluptate voluptatem ipsam eius, amet
-                facilis ipsa dolore a quidem!</p>
-            <h3>Who we are</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quis animi soluta aspernatur dicta minus
-                eaque, harum aliquam neque sequi culpa vero. Officia, voluptas labore beatae vitae laborum autem porro
-                voluptatem dolorum cumque odio.</p>
-        </div>
-    </div>
-
 </body>
 
 </html>

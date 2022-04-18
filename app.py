@@ -17,8 +17,18 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
-from spotifyapi import search, recommendedartist, categoryplaylist, gettracks
 from random import choice
+from spotifyapi import (
+    search,
+    recommendedartist,
+    categoryplaylist,
+    gettracks,
+    getSongCover,
+    getSongArtist,
+    getSongName,
+    getAlbum,
+    getReleaseDate,
+)
 
 load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
@@ -174,7 +184,6 @@ def landing():
     )
 
 
-# consider adding an edge case "where field is empty"
 @app.route("/recommendations", methods=["GET", "POST"])
 @login_required
 def recommendations():
@@ -222,10 +231,22 @@ def extra1():
     return flask.render_template("recommendations.html")
 
 
-@app.route("/2", methods=["GET", "POST"])
-def extra2():
-    """extra route to work with"""
-    return
+@app.route("/2/<song>", methods=["GET", "POST"])
+def extra2(song):
+    """song information page route"""
+    name = getSongName(song)
+    artist = getSongArtist(song)
+    album_cover = getSongCover(song)
+    album_name = getAlbum(song)
+    release_date = getReleaseDate(song)
+    return flask.render_template(
+        "songinfo.html",
+        name=name,
+        artist=artist,
+        album_cover=album_cover,
+        album_name=album_name,
+        release_date=release_date,
+    )
 
 
 @app.route("/3", methods=["GET", "POST"])
@@ -237,8 +258,17 @@ def extra3():
 @app.route("/4", methods=["GET", "POST"])
 def extra4():
     """extra route to work with"""
-    # 'pop','country','rnb','hiphop',
-    genres = ["jazz"]
+    genres = [
+        "pop",
+        "country",
+        "rnb",
+        "hiphop",
+        "jazz",
+        "indie",
+        "latin",
+        "rock",
+        "classical",
+    ]
     randomgenre = choice(genres)
     songs = gettracks(categoryplaylist(randomgenre))
     song = choice(songs)
