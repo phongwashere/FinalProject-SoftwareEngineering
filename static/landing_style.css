@@ -1,46 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins&display=swap');
-
-html {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@500;800&display=swap');
+html{
     min-height: 100%;
 }
-
-body {
-    background: rgb(100, 119, 202);
-    background: linear-gradient(168deg, rgba(100, 119, 202, 1) 0%, rgba(213, 132, 202, 1) 94%);
+body{
+    background: rgb(100,119,202);
+    background: linear-gradient(168deg, rgba(100,119,202,1) 0%, rgb(213, 133, 203) 94%);
     margin: 0;
     padding: 0;
+    height: 120vh;
+    background-repeat: no-repeat;
     font-family: 'Poppins', sans-serif;
     color: aliceblue;
+    box-shadow: inset 0px -22px 22px -22px rgba(50, 50, 93, 0.25);
 }
 
-
-h1 {
-    text-align: center;
+nav a{
+    color: rgb(16, 20, 95);;
+    margin-top: 12px;
+    text-decoration: none;
+    padding: 22px;
+    justify-content: end;
+}
+nav a:hover{
+    color:rgb(162, 123, 163);
+}
+.main-content p{
+    margin-left: 6%;
+}
+h1{
+    margin-left: 6%;
+    font-size: 46px;
+    letter-spacing: 1px;
 }
 
 .genres {
     width: 90%;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
     padding: 34px;
+    padding-top: 10px;
     margin: 0 auto;
 }
-
-.genre-content {
-    background-color: rgba(255, 255, 255, 0.1);
+.genres a{
+    transition: 0.15s;
+}
+.genres a:hover{
+    transform: scale(1.1);
+}
+ 
+.genre-content{
+    background-color: rgba(255,255,255,0.1);
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     margin: 10px 13px;
     padding: 20px 23px;
+    transition: 0.15s;
 }
-
-.genre-content h2 {
-    text-align: center;
+.genre-content:hover{
+    transform: scale(1.1);
+}
+ .genre-content h2{
+    font-size: 29px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.genre-content ul{
+    padding: 0;
+    list-style-type: none;
 }
 
 .genre-content li {
     font-family: 'Anonymous Pro', monospace;
-    list-style: none;
+    letter-spacing: -1px;
 }
 
 .genre-content a {
@@ -81,9 +112,40 @@ p {
     color: white;
 }
 
-img {
+.fixed_header img {
     position: absolute;
     width: 100px;
     height: 100px;
     margin-top: -10px;
+}
+
+.genre-content a:hover{
+    color:rgb(16, 20, 95);
+}
+.image{
+    height: 310px;
+    width: auto;
+    margin-top: 84px;
+}
+.image img{
+    max-width: 100%;
+    max-height: 120%;
+    object-fit: cover;
+}
+.about{
+    color: #414141;
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+}
+.about h1{
+    font-size: 46px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: rgb(100,119,202)
+}
+.about-text h3{
+    margin-top: 33px;
+    color: rgb(213, 133, 203);
+    text-transform: uppercase;
 }
