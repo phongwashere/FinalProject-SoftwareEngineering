@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/songinfo.css">
+</head>
+
+<body>
+    <div class="fixed_header">
+        <img src="static/tuneslogo.png"/>
+        <a href="{{ url_for('logout') }}">LOGOUT</a>
+        <a href="{{ url_for('landing') }}">TOP TRENDING</a>
+        <a href="{{ url_for('extra1') }}">RECOMMENDATIONS</a>
+        <a href="{{ url_for('favorites') }}">FAVORITES</a>
+    </div>
+
+    <!--need the br to show header of page, since nav bar covers it without-->>
+    <br>
+    <br>
+    <br>
+    
+    <h1> {{name}} </h1>
+    <h2>{{artist}}</h2>
+    <h3>Album: {{album_name}}</h3>
+    <h4>Release Date: {{release_date}}</h4>
+    
+    <div class="cover">
+        <iframe src="{{album_cover}}" width="640" height="640" style="border:1px solid black;"></iframe>
+    </div>
+    <div class="youtube">
+        <a href="https://www.youtube.com/results?search_query={{artist}}+{{name}}+covers">Listen to covers</a>
+    </div>
+
+</body>
+
+</html>

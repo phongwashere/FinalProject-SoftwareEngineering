@@ -20,50 +20,51 @@
     
     <div class="main-content">
         <p>Hi {{user}}!</p>
+      
+    <h1>Top Trending</h1>
+    <div class="genres">
+        <div class="genre-content">
+            <h2>POP</h2>
+            {% for song in pop %}
+            <ul>
+                <li>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
 
-        <h1>Top Trending</h1>
-        <div class="genres">
-            <div class="genre-content">
-                <h2>POP</h2>
-                {% for song in pop %}
-                <ul>
-                    <li>
-                        <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
-                    </li>
-                </ul>
-                {% endfor %}
-            </div>
+        <div class="genre-content">
+            <h2>HIP HOP</h2>
+            {% for song in hiphop %}
+            <ul>
+                <li>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
 
-            <div class="genre-content">
-                <h2>HIP HOP</h2>
-                {% for song in hiphop %}
-                <ul>
-                    <li>
-                        <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
-                    </li>
-                </ul>
-                {% endfor %}
-            </div>
+        <div class="genre-content">
+            <h2>RnB</h2>
+            {% for song in rnb %}
+            <ul>
+                <li>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
 
-            <div class="genre-content">
-                <h2>RnB</h2>
-                {% for song in rnb %}
-                <ul>
-                    <li>
-                        <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
-                    </li>
-                </ul>
-                {% endfor %}
-            </div>
-
-            <div class="genre-content">
-                <h2>COUNTRY</h2>
-                {% for song in country %}
-                <ul><li>
-                    <a href="https://www.youtube.com/results?search_query={{song}}+covers">{{song}}</a>
-                </li></ul>
-                {% endfor %}
-            </div>
+        <div class="genre-content">
+            <h2>COUNTRY</h2>
+            {% for song in country %}
+            <ul>
+                <li>
+                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                </li>
+            </ul>
+            {% endfor %}
         </div>
     </div>
     <br>
@@ -80,7 +81,6 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quis animi soluta aspernatur dicta minus eaque, harum aliquam neque sequi culpa vero. Officia, voluptas labore beatae vitae laborum autem porro voluptatem dolorum cumque odio.</p>
         </div> 
     </div>
-
 </body>
 
 </html>
