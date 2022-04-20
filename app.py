@@ -324,4 +324,4 @@ def del_fav_artist():
     return flask.redirect("/favorites")
 
 
-app.run(debug=True)
+app.run(host=os.getenv("IP", "0.0.0.0"), port=int(os.getenv("PORT", 8080)), debug=True)
