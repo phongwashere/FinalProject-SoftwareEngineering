@@ -10,8 +10,9 @@
         <img src="static/tuneslogo.png">
         <a href="{{ url_for('logout') }}">LOGOUT</a>
         <a href="{{ url_for('extra1') }}">RECOMMENDATIONS</a>
-        <a href="{{ url_for('extra4') }}">RANDOM SONG</a>
+        <a href="{{ url_for('extra3') }}">RANDOMIZE</a>
         <a href="{{ url_for('favorites') }}">FAVORITES</a>
+        <a href="{{ url_for('landing') }}">TRENDING</a>
     </div>
 
     <br>
@@ -67,6 +68,8 @@
                 {% endfor %}
             </div>
         </div>
+        <br>
+        <br>
         <br>
 
         <div class="about">

@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@500;800&display=swap');
-html{
+
+html {
     min-height: 100%;
 }
-body{
-    background: rgb(100,119,202);
-    background: linear-gradient(168deg, rgba(100,119,202,1) 0%, rgb(213, 133, 203) 94%);
+
+body {
+    background: rgb(100, 119, 202);
+    background: linear-gradient(168deg, rgba(100, 119, 202, 1) 0%, rgb(213, 133, 203) 94%);
     margin: 0;
     padding: 0;
     height: 120vh;
@@ -14,20 +16,24 @@ body{
     box-shadow: inset 0px -22px 22px -22px rgba(50, 50, 93, 0.25);
 }
 
-nav a{
-    color: rgb(16, 20, 95);;
+nav a {
+    color: rgb(16, 20, 95);
+    ;
     margin-top: 12px;
     text-decoration: none;
     padding: 22px;
     justify-content: end;
 }
-nav a:hover{
-    color:rgb(162, 123, 163);
+
+nav a:hover {
+    color: rgb(162, 123, 163);
 }
-.main-content p{
-    margin-left: 6%;
+
+.main-content p {
+    margin-left: 5%;
 }
-h1{
+
+h1 {
     margin-left: 6%;
     font-size: 46px;
     letter-spacing: 1px;
@@ -41,30 +47,35 @@ h1{
     padding-top: 10px;
     margin: 0 auto;
 }
-.genres a{
+
+.genres a {
     transition: 0.15s;
 }
-.genres a:hover{
+
+.genres a:hover {
     transform: scale(1.1);
 }
- 
-.genre-content{
-    background-color: rgba(255,255,255,0.1);
+
+.genre-content {
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     margin: 10px 13px;
     padding: 20px 23px;
     transition: 0.15s;
 }
-.genre-content:hover{
+
+.genre-content:hover {
     transform: scale(1.1);
 }
- .genre-content h2{
+
+.genre-content h2 {
     font-size: 29px;
     font-weight: 500;
     letter-spacing: 1px;
 }
-.genre-content ul{
+
+.genre-content ul {
     padding: 0;
     list-style-type: none;
 }
@@ -119,35 +130,41 @@ p {
     margin-top: -10px;
 }
 
-.genre-content a:hover{
-    color:rgb(16, 20, 95);
+.genre-content a:hover {
+    color: rgb(16, 20, 95);
 }
-.image{
+
+.image {
     height: 310px;
     width: auto;
     margin-top: 84px;
 }
-.image img{
+
+.image img {
     max-width: 100%;
     max-height: 120%;
     object-fit: cover;
 }
-.about{
+
+.about {
     color: #5a5a5a;
     width: 60%;
     text-align: center;
     margin: 0 auto;
 }
-.about h1{
+
+.about h1 {
     font-size: 46px;
     letter-spacing: -1px;
     margin: 0;
-    color: rgb(100,119,202)
+    color: rgb(100, 119, 202)
 }
-.about-text{
+
+.about-text {
     padding-bottom: 100px;
 }
-.about-text h3{
+
+.about-text h3 {
     margin-top: 73px;
     color: rgb(213, 133, 203);
     font-size: 1.5rem;
@@ -155,21 +172,25 @@ p {
     letter-spacing: 1px;
     margin-bottom: 0px;
 }
-.group-text{
+
+.group-text {
     display: grid;
     grid-template-columns: auto auto auto;
 }
-.member-text img{
+
+.member-text img {
     width: 100%;
     margin-bottom: -33px;
 }
-.member-text h4{
-    color: rgb(100,119,202);
+
+.member-text h4 {
+    color: rgb(100, 119, 202);
     letter-spacing: -1px;
     font-size: 1.2rem;
     margin: -3px;
 }
-.member-text span{
+
+.member-text span {
     color: rgb(213, 133, 203);
     font-weight: bold;
 }

@@ -23,7 +23,7 @@
             {% for song in pop %}
             <ul>
                 <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    {{song}}
                 </li>
             </ul>
 
@@ -35,7 +35,7 @@
             {% for song in hiphop %}
             <ul>
                 <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    {{song}}
                 </li>
             </ul>
             {% endfor %}
@@ -47,7 +47,7 @@
             {% for song in rnb %}
             <ul>
                 <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    {{song}}
                 </li>
             </ul>
             {% endfor %}
@@ -58,13 +58,15 @@
             {% for song in country %}
             <ul>
                 <li>
-                    <a href="{{ url_for('extra2', song=song) }}">{{song}}</a>
+                    {{song}}
                 </li>
             </ul>
 
             {% endfor %}
         </div>
     </div>
+    <br>
+    <br>
     <br>
 
     <div class="about">
