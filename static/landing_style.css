@@ -133,19 +133,43 @@ p {
     object-fit: cover;
 }
 .about{
-    color: #414141;
+    color: #5a5a5a;
     width: 60%;
     text-align: center;
     margin: 0 auto;
 }
 .about h1{
     font-size: 46px;
-    letter-spacing: 1px;
+    letter-spacing: -1px;
     margin: 0;
     color: rgb(100,119,202)
 }
+.about-text{
+    padding-bottom: 100px;
+}
 .about-text h3{
-    margin-top: 33px;
+    margin-top: 73px;
     color: rgb(213, 133, 203);
+    font-size: 1.5rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+}
+.group-text{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.member-text img{
+    width: 100%;
+    margin-bottom: -33px;
+}
+.member-text h4{
+    color: rgb(100,119,202);
+    letter-spacing: -1px;
+    font-size: 1.2rem;
+    margin: -3px;
+}
+.member-text span{
+    color: rgb(213, 133, 203);
+    font-weight: bold;
 }

@@ -45,13 +45,17 @@ and returns the 10 top tracks from that playlist.
 
 As shown above, the landing page takes in the 2 functions: categoryPlaylist() and getTracks() to display the top
 10 tracks from a genre the user might be interested in. The landing page is first shown to those who load the site
-and after logging in to the web application, more features are available to the user. 
+and after logging in to the web application, more features are available to the user. Each song is a hyperlink that redirects the user to a page with song information and a link to listen to YouTube covers of the song. 
 
 ### Favorites Page
 
 The user might be interested in keeping a list of their favorite song or artist. The favorites page takes in the information stored in the Heroku DB
 and allows the user to add and delete a favorite song/artist to the webpage. The functions that deal with this process are save_fav_song(), 
 del_fav_song(), save_fav_artist(), del_fav_artist(), and favorites() within app.py. 
+
+### Randomize Page
+
+The user might be interested in finding a completely random song to listen to in a new genre! This page uses the Spotipy API and searches for a random song within a list of genres provided, returning the user a random song to listen to. 
 
 ## How to run locally?
 #### Install general libraries(use pip or pip3)
