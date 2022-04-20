@@ -251,20 +251,19 @@ def extra2(song):
 
 @app.route("/3", methods=["GET", "POST"])
 def extra3():
-    """extra"""
-    return
+    """random song before clicking button"""
+    return flask.render_template("randomb4song.html")
 
 
 @app.route("/4", methods=["GET", "POST"])
 def extra4():
-    """extra route to work with"""
+    """random song page"""
     genres = [
         "pop",
         "country",
         "rnb",
         "hiphop",
         "jazz",
-        "indie",
         "latin",
         "rock",
         "classical",
