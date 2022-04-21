@@ -111,6 +111,7 @@ p {
     float: right;
     display: block;
     color: black;
+    font-weight: 500;
     text-align: center;
     padding: 18px 14px;
     text-decoration: none;
@@ -147,8 +148,9 @@ p {
 }
 
 .about {
+    background-color: white;
     color: #5a5a5a;
-    width: 60%;
+    width: 100%;
     text-align: center;
     margin: 0 auto;
 }
@@ -162,6 +164,9 @@ p {
 
 .about-text {
     padding-bottom: 100px;
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
 }
 
 .about-text h3 {

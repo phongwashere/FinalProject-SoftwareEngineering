@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@500;800&display=swap');
-html{
+
+html {
     min-height: 100%;
 }
 
@@ -11,21 +12,26 @@ body {
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
 }
-nav{
+
+nav {
     background-color: aliceblue;
     height: 50px;
 }
-nav a{
-    color: rgb(16, 20, 95);;
+
+nav a {
+    color: rgb(16, 20, 95);
+    ;
     margin-top: 12px;
     text-decoration: none;
     padding: 22px;
     justify-content: end;
 }
-nav a:hover{
-    color:rgb(162, 123, 163);
+
+nav a:hover {
+    color: rgb(162, 123, 163);
 }
-.content-with-header h1{
+
+.content-with-header h1 {
     font-weight: 800;
     font-size: 46px;
     letter-spacing: 1px;
@@ -33,20 +39,24 @@ nav a:hover{
     margin-bottom: 30px;
     margin-top: 30px;
 }
-.content-with-header{
+
+.content-with-header {
     width: 80%;
     margin: 0 auto;
     color: aliceblue;
 }
-.content-with-header .btn-primary{
-    background-color: rgb(100,119,202);
-    border-color: rgb(100,119,202);
+
+.content-with-header .btn-primary {
+    background-color: rgb(100, 119, 202);
+    border-color: rgb(100, 119, 202);
 }
-.content-with-header .btn-primary:hover{
+
+.content-with-header .btn-primary:hover {
     background-color: rgb(88, 105, 177);
     border-color: rgb(88, 105, 177);
 }
-.content{
+
+.content {
     width: 70%;
     margin: 0 auto;
     padding: 30px;
@@ -54,31 +64,33 @@ nav a:hover{
     grid-template-columns: 40% 40%;
     grid-gap: 20%;
 }
-.content h2{
+
+.content h2 {
     font-size: 29px;
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: 23px;
     text-transform: uppercase;
 }
-.content ul{
+
+.content ul {
     padding: 0;
     list-style-type: none;
 }
 
-li{
+li {
     font-family: 'Anonymous Pro', monospace;
     letter-spacing: -1px;
 }
 
-.database{
+.database {
     width: 90%;
     height: 400px;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     padding: 27px;
-    overflow-y:auto
+    overflow-y: auto
 }
 
 .fixed_header {
@@ -94,6 +106,7 @@ li{
     float: right;
     display: block;
     color: black;
+    font-weight: 500;
     text-align: center;
     padding: 18px 14px;
     text-decoration: none;
@@ -114,26 +127,24 @@ li{
     margin-top: -10px;
 }
 
-.database h2{
-    
-}
+
 /* custom scrollbar */
 .database::-webkit-scrollbar {
     width: 20px;
-  }
-  
+}
+
 .database::-webkit-scrollbar-track {
     background-color: transparent;
     margin: 0 30px;
-  }
-  
-  .database::-webkit-scrollbar-thumb {
+}
+
+.database::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     border: 6px solid transparent;
     background-clip: content-box;
-  }
-  
-  .database::-webkit-scrollbar-thumb:hover {
+}
+
+.database::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.55);
-  }
+}
