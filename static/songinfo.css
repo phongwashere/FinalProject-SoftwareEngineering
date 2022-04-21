@@ -127,7 +127,7 @@ img {
 }
 
 .content .info {
-    align: right;
+    text-align: right;
 }
 
 iframe {
